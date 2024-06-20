@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "itemName": "裤子",
+      "price": 65,
+      "id": 1
+    },
+    {
+      "itemName": "帽子",
+      "price": 45,
+      "id": 2
+    },
+    {
+      "itemName": "手机",
+      "price": 4566,
+      "id": 3
+    },
+    {
+      "itemName": "耳机",
+      "price": 345,
+      "id": 4
+    },
+    {
+      "itemName": "键盘",
+      "price": 223,
+      "id": 5
+    },
+    {
+      "itemName": "咖啡",
+      "price": 9.999,
+      "id": 6
+    },
+    {
+      "itemName": "电脑",
+      "price": 69999,
+      "id": 7
+    },
+    {
+      "itemName": "摄像头",
+      "price": 560,
+      "id": 8
+    }
+  ]
+}
