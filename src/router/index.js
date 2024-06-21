@@ -1,4 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// import { useUserStore } from '../stores/user'
+// import { storeToRefs } from 'pinia'
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,7 +39,28 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path:'/:pathMatch(.*)*',
+      name:'404',
+      component:()=>import('../views/404View.vue')
+    }
   ],
+  
 })
+router.beforeEach((to, from, next) => {
+  const islogin = localStorage.getItem('islogin')
+  // const { islogin } = useUserStore()
+  if (islogin) {
+    next()
+  } else {
+    // 未登录
+    if (to.path !== '/login') {
+      alert('请先登录')
+      next('/login')
+    } else {
+      next()
+    }
+  }
+  })
 
 export default router

@@ -43,6 +43,7 @@ export const useItemStore = defineStore('item', () => {
   const handleLogout = () => {
     // islogin.value = false
     router.push({ name: 'login' })
+    localStorage.removeItem('islogin')
   }
   const handleUpdate = (id) => {
     router.push({name:'update',params:{id}})

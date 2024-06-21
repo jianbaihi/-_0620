@@ -1,19 +1,24 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user';
+import { storeToRefs } from 'pinia';
 
-const username = ref('')
-const password = ref('')
+
 const router = useRouter()
-
+console.log(useUserStore())
+const {username,password,islogin} = storeToRefs(useUserStore())
+// const {login} = useUserStore()
 const login = () => {
-  console.log(username.value, password.value)
-  if (username.value === 'admin' && password.value === 123) {
-    router.push({ name: 'item' })
-  } else {
-    alert('您输入的用户名或密码有误，请重新输入')
-  }
-}
+        console.log(username.value, password.value)
+        if (username.value === 'admin' && password.value === 123) {
+          router.push({ name: 'item' })
+          localStorage.setItem('islogin', true)
+          // islogin.value = true
+        } else {
+          alert('您输入的用户名或密码有误，请重新输入')
+        }
+      }
 </script>
 
 <template>
@@ -45,6 +50,7 @@ const login = () => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 1px 10px #888888;
 }
 .login .input {
   width: 200px;
